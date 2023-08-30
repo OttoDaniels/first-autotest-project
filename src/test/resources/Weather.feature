@@ -5,7 +5,7 @@ Feature: Weather forecast
 
     When we are requesting weather forecast
 
-    Then latiture is 39.31
+    Then latitude is 39.31
     And longitude is -74.5
     And timezone is "America/New_York"
     And timezone offset is -18000
