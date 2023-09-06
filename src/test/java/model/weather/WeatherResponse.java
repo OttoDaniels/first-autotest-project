@@ -17,6 +17,7 @@ public class WeatherResponse {
     private List<Hourly> hourly;
     private List<Daily> daily;
     private List<Alerts> alerts;
+    private List<String> tags;
 
     public double getLat() {
         return lat;

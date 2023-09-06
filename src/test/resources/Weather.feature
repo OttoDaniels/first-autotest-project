@@ -49,6 +49,8 @@ Feature: Weather forecast
       | wind_speed | 7.16       |
       | wind_deg   | 313        |
       | wind_gust  | 10.71      |
+      | pop        | 0.03       |
+
 
     And hourly weather details are:
       | id          | 803          |
@@ -56,7 +58,7 @@ Feature: Weather forecast
       | description | brokenclouds |
       | icon        | 04d          |
 
-    And hourly weather pop is 0.03
+
 
     And daily details are:
       | dt         | 1646326800 |
@@ -104,9 +106,5 @@ Feature: Weather forecast
       | end         | 1646380800                                                              |
       | description | ...SMALLCRAFTADVISaft.                                                  |
     And alerts tags are:
-    |||
-    |||
-    |||
-  private List<String> tags;
-  | tags        |                                                                         |
-  ...
+      |  |  |
+
