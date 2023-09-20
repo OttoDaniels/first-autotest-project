@@ -36,9 +36,10 @@
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.8.3</version>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.12.1</version>
         </dependency>
+
 
         <dependency>
             <groupId>io.cucumber</groupId>

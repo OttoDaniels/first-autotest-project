@@ -11,7 +11,15 @@ public class Alerts {
     private long start;
     private long end;
     private String description;
+    private List<Tags> tags;
 
+    public List<Tags> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tags> tags) {
+        this.tags = tags;
+    }
 
     public String getSenderName() {
         return senderName;

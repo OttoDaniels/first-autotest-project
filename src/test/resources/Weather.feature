@@ -69,35 +69,38 @@ Feature: Weather forecast
       | moon_phase | 0.03       |
 
     And detailed day's temperature is:
-      | day   | 281.63 |
-      | min   | 271.72 |
-      | max   | 282.21 |
-      | night | 271.72 |
-      | eve   | 277.99 |
-      | morn  | 280.92 |
-    And daily feels like temperature is:
-      | day   | 277.83 |
-      | night | 264.72 |
-      | eve   | 273.35 |
-      | morn  | 277.66 |
-    And other daily weather details are:
+      | day        | 281.63 |
+      | min        | 271.72 |
+      | max        | 282.21 |
+      | night      | 271.72 |
+      | eve        | 277.99 |
+      | morn       | 280.92 |
       | pressure   | 1016   |
       | humidity   | 55     |
       | dew_point  | 273.12 |
       | wind_speed | 9.29   |
       | wind_deg   | 3      |
       | wind_gust  | 16.48  |
+      | clouds     | 49     |
+      | pop        | 0.25   |
+      | rain       | 0.11   |
+      | uvi        | 3.38   |
+
+    And daily feels like temperature is:
+      | day   | 277.83 |
+      | night | 264.72 |
+      | eve   | 273.35 |
+      | morn  | 277.66 |
+
 
     And daily weather details are:
       | id          | 500       |
       | main        | Rain      |
       | description | lightrain |
       | icon        | 10d       |
-    And other daily weather details are:
-      | clouds | 49   |
-      | pop    | 0.25 |
-      | rain   | 0.11 |
-      | uvi    | 3.38 |
+
+
+
 
     And alerts are:
       | sender_name | NWSPhiladelphia-MountHolly(NewJersey,Delaware,SoutheasternPennsylvania) |
@@ -105,6 +108,6 @@ Feature: Weather forecast
       | start       | 1646344800                                                              |
       | end         | 1646380800                                                              |
       | description | ...SMALLCRAFTADVISaft.                                                  |
-    And alerts tags are:
-      |  |  |
+      | tags        |                                                                         |
+
 

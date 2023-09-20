@@ -6,6 +6,7 @@ public class Daily {
     private long dt;
     private long sunrise;
     private long sunset;
+    private long moonrise;
     private long moonset;
 
     @JsonProperty("moon_phase")
@@ -186,5 +187,13 @@ public class Daily {
 
     public void setAlerts(Alerts alerts) {
         this.alerts = alerts;
+    }
+
+    public long getMoonrise() {
+        return moonrise;
+    }
+
+    public void setMoonrise(long moonrise) {
+        this.moonrise = moonrise;
     }
 }
