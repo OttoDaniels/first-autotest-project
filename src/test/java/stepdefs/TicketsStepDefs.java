@@ -1,11 +1,13 @@
 package stepdefs;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import model.tickets.Flight;
 import model.tickets.Passenger;
+import org.junit.jupiter.api.Assertions;
 import pages.BaseFunctions;
-import pages.FlightRegistrationPage;
+import pages.PassengerInfoPage;
 import pages.HomePage;
 
 import java.util.Map;
@@ -15,7 +17,7 @@ public class TicketsStepDefs {
     private Flight flight = new Flight();
     private BaseFunctions baseFunctions= new BaseFunctions();
     private HomePage homePage;
-    private FlightRegistrationPage infopage;
+    private PassengerInfoPage infopage;
 
     @Given("airports")
     public void set_airports(Map<String, String> params) {
@@ -46,7 +48,15 @@ public class TicketsStepDefs {
         homePage.selectDepartureAirport(flight.getDeparture());
         homePage.selectArrivalAirport(flight.getArrival());
         homePage.clickGoBtn();
-        infopage = new FlightRegistrationPage(baseFunctions);
+        infopage = new PassengerInfoPage(baseFunctions);
     }
-
+    @Then("selected airports appears on the passenger info page")
+    public void check_selected_airports() {
+        Assertions.assertEquals(flight.getDeparture(), infopage.getDepartureAirport(), "Wrong departure airport!");
+        //check arrival airport
+    }
+    @When("we are filling in passenger info")
+    public void fill_in_flight_info() {
+        infopage.fillInPassengerInfo(flight, passenger);
+    }
 }

@@ -10,6 +10,18 @@ public class Flight {
     private String flightDate;
     private int seatNumber;
 
+    public Flight(String departure, String arrival, String discount, int passengerCount, int childCount, int luggageCount, String flightDate, int seatNumber) {
+        this.departure = departure;
+        this.arrival = arrival;
+        this.discount = discount;
+        this.passengerCount = passengerCount;
+        this.childCount = childCount;
+        this.luggageCount = luggageCount;
+        this.flightDate = flightDate;
+        this.seatNumber = seatNumber;
+    }
+    public Flight () {} //can be empty to enter info in a test
+
     public String getDeparture() {
         return departure;
     }

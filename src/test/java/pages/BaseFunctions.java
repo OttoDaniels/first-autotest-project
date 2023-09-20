@@ -45,7 +45,8 @@ public class BaseFunctions {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         //return browser.findElement(locator);
     }
-    public List<WebElement> findElements(By locator){
+
+    public List<WebElement> findElements(By locator) {
         return browser.findElements(locator);
     }
 
@@ -55,7 +56,8 @@ public class BaseFunctions {
         select.selectByValue(value);
 
     }
-    public void selectByText (By locator, String text){
+
+    public void selectByText(By locator, String text) {
         Select select = new Select(findElement(locator));
         select.selectByVisibleText(text);
 
@@ -63,21 +65,26 @@ public class BaseFunctions {
 
     public void click(By locator) {
 
-        wait.until((ExpectedConditions.elementToBeClickable(locator))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
-    public void type (By locator, String text) {
+    public void type(By locator, String text) {
         WebElement inputField = findElement(locator);
         inputField.clear();
         inputField.sendKeys(text);
     }
 
-    public void type (By locator, int text){
+    public void type(By locator, int text) {
         type(locator, String.valueOf(text));
 
     }
-    public void waitForElementsCountToBeAtList(By locator, int minCount){
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(locator, minCount-1));
+
+    public void waitForElementsCountToBeAtList(By locator, int minCount) {
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(locator, minCount - 1));
+    }
+
+    public List<WebElement> waitForNumberOfElementsToBe(By locator, int count) {
+        return wait.until(ExpectedConditions.numberOfElementsToBe(locator, count));
     }
 
 }

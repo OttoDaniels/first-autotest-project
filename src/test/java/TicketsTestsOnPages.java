@@ -1,20 +1,17 @@
-import model.ReservationInfo;
+import model.tickets.Flight;
+import model.tickets.Passenger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import pages.BaseFunctions;
-import pages.FlightRegistrationPage;
+import pages.PassengerInfoPage;
 import pages.HomePage;
 import pages.SeatSelectionPage;
 
 public class TicketsTestsOnPages {
     private final String URL = "qaguru.lv:8089/tickets/";
-    private final String DEPARTURE_AIRPORT = "RIX";
-    private final String ARRIVAL_AIRPORT = "MEL";
-    private int seatNr = 5;
-    private ReservationInfo info = new ReservationInfo("Dmitry","Tester","111222",4,1,2,"11-05-2018");
+    private Passenger passenger = new Passenger("Dmitry", "Tester");
+    private Flight flight = new Flight("RIX", "MEL", "CCC", 4,4,
+            2, "11-05-2018", 18);
 
 
     @Test
@@ -23,21 +20,22 @@ public class TicketsTestsOnPages {
         baseFunc.openURL(URL);
 
         HomePage homePage = new HomePage(baseFunc);
-        homePage.selectDepartureAirport(DEPARTURE_AIRPORT);
-        homePage.selectArrivalAirport(ARRIVAL_AIRPORT);
+        homePage.selectDepartureAirport(flight.getDeparture());
+        homePage.selectArrivalAirport(flight.getArrival());
         homePage.clickGoBtn();
 
-        FlightRegistrationPage infoPage = new FlightRegistrationPage(baseFunc);
-        infoPage.enterPassengerInfo(info);
+        PassengerInfoPage infoPage = new PassengerInfoPage(baseFunc);
+        infoPage.fillInPassengerInfo(flight, passenger);
         infoPage.clickBookBtn();
 
         //Continue code
 
-        Assertions.assertEquals(DEPARTURE_AIRPORT, infoPage.getDepartureAirport(), "incorrect airport");
+        Assertions.assertEquals(flight.getDeparture(), infoPage.getDepartureAirport(), "incorrect departure airport");
+        Assertions.assertEquals(flight.getArrival(), infoPage.getDepartureAirport(), "incorrect arrival airport");
 
         //Continue code
         SeatSelectionPage seatSelectionPage = new SeatSelectionPage(baseFunc);
-        seatSelectionPage.selectSeat(seatNr);
+        seatSelectionPage.selectSeat(flight.getSeatNumber());
 
 
     }
