@@ -45,4 +45,7 @@ public class PassengerInfoPage {
         //String airport = "RIX"; //Finding element(s) by locator. Getting text
         //return airport;
     }
+    public String getArrivalAirport(){
+        return baseFunc.waitForNumberOfElementsToBe(FLIGHT_INFO, 5).get(1).getText();
+    }
 }

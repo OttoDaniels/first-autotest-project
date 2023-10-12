@@ -9,6 +9,7 @@ import java.util.List;
 public class SeatSelectionPage {
     private BaseFunctions baseFunctions;
     private final By SEAT = By.xpath(".//div[contains(@onclick, 'seat')]");
+    private final By BOOK_BUTTON_AFTER_SEAT = By.id("book3");
 
     public SeatSelectionPage(BaseFunctions baseFunctions) {
         this.baseFunctions = baseFunctions;
@@ -45,5 +46,8 @@ public class SeatSelectionPage {
         //    System.out.println(we.getText());
         //do something
         //}
+    }
+    public void clickBookBtn() {
+        baseFunctions.click(BOOK_BUTTON_AFTER_SEAT);
     }
 }

@@ -5,7 +5,7 @@ Feature: Air Ticket Booking
       | from | RIX |
       | to   | JFC |
     And passenger info is:
-      | first_name | Daniels |
+      | first_name | random |
       | last_name  | Otto    |
 
     And flight info is:

@@ -1,5 +1,7 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,10 +19,13 @@ public class BaseFunctions {
     private WebDriver browser;
     private WebDriverWait wait;
     private Select select;
+    private final Logger LOGGER = LogManager.getLogger(this.getClass());
 
 
     public BaseFunctions() {
+        LOGGER.info("Open Browser info");
         browser = new ChromeDriver();
+        LOGGER.info("Expanding browser window");
         browser.manage().window().maximize();
 
         wait = new WebDriverWait(browser, Duration.ofSeconds(5));
@@ -28,6 +33,7 @@ public class BaseFunctions {
     }
 
     public void openURL(String url) {
+        LOGGER.info("Open web page:"+url);
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }
@@ -86,5 +92,6 @@ public class BaseFunctions {
     public List<WebElement> waitForNumberOfElementsToBe(By locator, int count) {
         return wait.until(ExpectedConditions.numberOfElementsToBe(locator, count));
     }
+
 
 }

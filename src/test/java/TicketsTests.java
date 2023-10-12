@@ -1,3 +1,4 @@
+import org.apache.logging.log4j.core.appender.SocketAppender;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -7,11 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BaseFunctions;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class TicketsTests {
     private final By FROM = By.id("afrom");
@@ -36,7 +35,7 @@ public class TicketsTests {
     private final By GET_PRICE_BTN = By.xpath(".//span[@onclick='setLang();']");
     private final By FLIGHT_INFO = By.xpath(".//span[@class='bTxt']");
     private final By BOOK_BTN = By.id("book2");
-    private final By SEAT_NUMBER = By.xpath(".//div[@onclick='seat']");
+    private final By SEAT_NUMBER = By.xpath(".//div[@onclick='seat(15)']");
     private final By BOOK_BUTTON_AFTER_SEAT = By.id("book3");
     private final By FINAL_TEXT = By.xpath(".//div[@class='finalTxt']");
 
@@ -47,7 +46,8 @@ public class TicketsTests {
     private final int PASSENGERS = 4;
     private final int CHILDREN = 2;
     private final int LUGGAGE = 2;
-    private final String DATE_OF_FLIGHT = "13-05-2018";
+    private final String DATE_OF_FLIGHT = "13";
+    private final String SUCCESS_MSG = "Thank You for flying with us!";
 
 
     @Test
@@ -109,6 +109,7 @@ public class TicketsTests {
         flightDate.selectByValue(DATE_OF_FLIGHT);
         System.out.println("Departure date " + flightDate.getFirstSelectedOption().getText());
 
+
         //Click on Get Price link
         browser.findElement(GET_PRICE_BTN).click();
 
@@ -125,7 +126,6 @@ public class TicketsTests {
         Assertions.assertEquals(DEPARTURE_AIRPORT, flightInfo.get(3).getText(), "Wrong departure airport!");
         Assertions.assertEquals(ARRIVAL_AIRPORT, flightInfo.get(4).getText(), "Wrong arrival airport");
 
-
         //Click on Book btn
         browser.findElement(BOOK_BTN).click();
 
@@ -134,6 +134,6 @@ public class TicketsTests {
         // Click Book btn
         browser.findElement(BOOK_BUTTON_AFTER_SEAT).click();
         //Check if successfull msg appears
-        //System.out.println(browser.findElement(By.xpath("//div[@class='finalTxt']")));
+        System.out.println(SUCCESS_MSG);
     }
 }
