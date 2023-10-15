@@ -73,6 +73,7 @@ public class Market {
     public void setDiscount(boolean discount) {
         this.discount = discount;
     }
+
     public void showShopOverview() {
         System.out.println(getMarketLabel() + " has " + getEmployees() + " employees and " + getCashDesk() + " Cash desks.");
     }

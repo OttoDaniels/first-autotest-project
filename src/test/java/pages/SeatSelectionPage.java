@@ -9,6 +9,7 @@ import java.util.List;
 public class SeatSelectionPage {
     private BaseFunctions baseFunctions;
     private final By SEAT = By.xpath(".//div[contains(@onclick, 'seat')]");
+    private final By SELECTED_SEAT_LINE = By.xpath(".//div[@class='line']");
     private final By BOOK_BUTTON_AFTER_SEAT = By.id("book3");
 
     public SeatSelectionPage(BaseFunctions baseFunctions) {
@@ -47,7 +48,13 @@ public class SeatSelectionPage {
         //do something
         //}
     }
+
     public void clickBookBtn() {
         baseFunctions.click(BOOK_BUTTON_AFTER_SEAT);
+    }
+    public int getSelectedSeat(){
+        String seatLine = baseFunctions.waitForNumberOfElementsToBe(SELECTED_SEAT_LINE, 1).get(0).getText();
+        String seat = seatLine.split(": ")[1];
+        return Integer.parseInt(seat);
     }
 }

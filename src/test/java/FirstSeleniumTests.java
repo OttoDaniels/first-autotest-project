@@ -10,7 +10,7 @@ public class FirstSeleniumTests {
 //    find element on web page starts with private final By
 
     private final By REGISTRATION_FORM = By.id("registration-form");
-    private final By FIRST_NAME_INPUT_FIELD = By.id ("first-name");
+    private final By FIRST_NAME_INPUT_FIELD = By.id("first-name");
     private final By SMART_NET_JOIN_BUTTON = By.xpath(".//span[@class = 'smart-net-banner__info-button-text']");
     private final By LOGO = By.tagName("img");
     private final By SEARCH_INPUT_FIELD = By.id("q");

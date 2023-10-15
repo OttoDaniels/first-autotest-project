@@ -76,14 +76,10 @@ public class Country {
         String hasBorder = "hasn't sea border";
         if (isSeaBorder()) {
             hasBorder = "has sea border";
-        }
-        else {
+        } else {
             hasBorder = "hasn't sea border";
         }
         System.out.println("County " + hasBorder);
-
-
-
 
 
         //        String message = "Country %s has %s flag and area is %s";

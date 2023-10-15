@@ -16,6 +16,7 @@ public class TicketsRequester {
         String json = restTemplate.getForEntity(URL, String.class).getBody();
 
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(json, new TypeReference<List<Reservation>>() {});
+        return mapper.readValue(json, new TypeReference<List<Reservation>>() {
+        });
     }
 }

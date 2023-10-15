@@ -20,7 +20,9 @@ public class Flight {
         this.flightDate = flightDate;
         this.seatNumber = seatNumber;
     }
-    public Flight () {} //can be empty to enter info in a test
+
+    public Flight() {
+    } //can be empty to enter info in a test
 
     public String getDeparture() {
         return departure;

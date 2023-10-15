@@ -34,18 +34,48 @@ public class PassengerInfoPage {
         baseFunc.type(LUGGAGE_COUNT, flight.getLuggageCount());
         baseFunc.selectByText(NEXT_FLIGHT_DATE, flight.getFlightDate());
     }
+
     public void clickGetPriceBtn() {
         baseFunc.click(GET_PRICE_BTN);
     }
+
     public void clickBookBtn() {
         baseFunc.click(BOOK_BTN);
     }
-    public String getDepartureAirport(){
-        return baseFunc.waitForNumberOfElementsToBe(FLIGHT_INFO, 5).get(0).getText();
-        //String airport = "RIX"; //Finding element(s) by locator. Getting text
-        //return airport;
+
+    private String getFlightInfoTextByIndex(int index) {
+        return getFlightInfoTextByIndex(index, 5);
     }
-    public String getArrivalAirport(){
-        return baseFunc.waitForNumberOfElementsToBe(FLIGHT_INFO, 5).get(1).getText();
+
+    private String getFlightInfoTextByIndex(int index, int count) {
+        return baseFunc.waitForNumberOfElementsToBe(FLIGHT_INFO, count).get(index).getText();
+    }
+
+    public String getDepartureAirport() {
+        return getFlightInfoTextByIndex(0);
+    }
+
+    public String getDepartureAirport(int count) {
+        return getFlightInfoTextByIndex(0, count);
+    }
+
+    public String getArrivalAirport() {
+        return getFlightInfoTextByIndex(1);
+    }
+    public String getArrivalAirport(int count) {
+        return getFlightInfoTextByIndex(1, count);
+    }
+
+    public String getFirstName() {
+        String firstName = getFlightInfoTextByIndex(2);
+        return firstName.substring(0, firstName.length() - 1);
+    }
+
+    public String getFirstNameValueLastChar() {
+        String firstNameValue = getFlightInfoTextByIndex(2);
+        return firstNameValue.substring(firstNameValue.length() - 1);
+    }
+    public void clickGetPrice(){
+        baseFunc.click(GET_PRICE_BTN);
     }
 }

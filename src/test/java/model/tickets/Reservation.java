@@ -9,7 +9,7 @@ public class Reservation {
     private String discount;
     private int bugs;
     private int children;
-    private int flight;
+    private String flight;
     private int adults;
     private int seat;
 
@@ -77,11 +77,11 @@ public class Reservation {
         this.children = children;
     }
 
-    public int getFlight() {
+    public String getFlight() {
         return flight;
     }
 
-    public void setFlight(int flight) {
+    public void setFlight(String flight) {
         this.flight = flight;
     }
 

@@ -33,7 +33,7 @@ public class BaseFunctions {
     }
 
     public void openURL(String url) {
-        LOGGER.info("Open web page:"+url);
+        LOGGER.info("Open web page:" + url);
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }

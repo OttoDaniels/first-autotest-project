@@ -7,7 +7,7 @@ import pages.*;
 public class TicketsTestsOnPages {
     private final String URL = "qaguru.lv:8089/tickets/";
     private Passenger passenger = new Passenger("Dmitry", "Tester");
-    private Flight flight = new Flight("RIX", "MEL", "CCC", 4,4,
+    private Flight flight = new Flight("RIX", "MEL", "CCC", 4, 4,
             2, "11-05-2018", 15);
 
 

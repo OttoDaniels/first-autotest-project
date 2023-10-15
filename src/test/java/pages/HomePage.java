@@ -12,7 +12,7 @@ public class HomePage {
 
     private BaseFunctions baseFunctions;
 
-    public HomePage(BaseFunctions baseFunctions){
+    public HomePage(BaseFunctions baseFunctions) {
         this.baseFunctions = baseFunctions;
     }
 
@@ -23,7 +23,8 @@ public class HomePage {
     public void selectArrivalAirport(String airport) {
         baseFunctions.selectByValue(ARRIVAL_SELECT, airport);
     }
-    public void clickGoBtn(){
+
+    public void clickGoBtn() {
         baseFunctions.click(GO_BTN);
     }
 }

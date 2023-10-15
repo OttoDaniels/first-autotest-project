@@ -2,7 +2,7 @@ package model;
 
 public class Fridge {
     private int height;
-    private  int width;
+    private int width;
     private int depth;
     private String color;
     private boolean freezer;

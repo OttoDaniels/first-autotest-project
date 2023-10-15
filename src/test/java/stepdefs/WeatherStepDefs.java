@@ -5,13 +5,10 @@ import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingExcept
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.it.Ma;
 import model.weather.*;
 import org.junit.jupiter.api.Assertions;
 import requesters.WeatherRequester;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -86,8 +83,9 @@ public class WeatherStepDefs {
         Assertions.assertEquals(Double.parseDouble(params.get("precipitation")), response.getMinutely().get(1).getPrecipitation(), "Incorrect minutely precipitation!");
 
     }
+
     @Then("hourly weather data is:")
-    public void hourly_weather_data_check(Map<String, String>params) {
+    public void hourly_weather_data_check(Map<String, String> params) {
         Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getHourly().get(0).getDt(), "Incorrect hourly weather dt");
         Assertions.assertEquals(Double.parseDouble(params.get("temp")), response.getHourly().get(1).getDt(), "Incorrect hourly weather temperature");
         Assertions.assertEquals(Double.parseDouble(params.get("feels_like")), response.getHourly().get(2).getDt(), "Incorrect hourly weather feels like");
@@ -102,13 +100,15 @@ public class WeatherStepDefs {
         Assertions.assertEquals(Double.parseDouble(params.get("wind_gust")), response.getHourly().get(11).getDt(), "Incorrect hourly wind gust");
         Assertions.assertEquals(Double.parseDouble(params.get("pop")), response.getHourly().get(12).getPop(), "Incorrect hourly pop!");
     }
+
     @Then("hourly weather details are:")
-    public void hourly_weather_details_check(Map<String,String>params) {
+    public void hourly_weather_details_check(Map<String, String> params) {
         Assertions.assertEquals(Long.parseLong(params.get("id")), response.getHourly().get(0).getWeather().get(0), "Incorrect hourly weather deatils id!");
         Assertions.assertEquals(params.get("main"), response.getHourly().get(0).getWeather().get(1), "Incorrect hourly weather deatils main!");
         Assertions.assertEquals(params.get("description"), response.getHourly().get(0).getWeather().get(2), "Incorrect hourly weather deatils description!");
         Assertions.assertEquals(params.get("icon"), response.getHourly().get(0).getWeather().get(3), "Incorrect hourly weather deatils icon!");
     }
+
     @Then("daily details are:")
     public void daily_weather_details_check(Map<String, String> params) {
         Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getDaily().get(0).getDt(), "Incorrect daily dt");
@@ -128,8 +128,9 @@ public class WeatherStepDefs {
         Assertions.assertEquals(Double.parseDouble(params.get("rain")), response.getDaily().get(10).getRain(), "Incorrect daily rain");
         Assertions.assertEquals(Double.parseDouble(params.get("uvi")), response.getDaily().get(10).getUvi(), "Incorrect daily uvi");
     }
+
     @Then("detailed day's temperature is:")
-    public void check_detailed_daily_weather_info(Map<String, String> params){
+    public void check_detailed_daily_weather_info(Map<String, String> params) {
         Assertions.assertEquals(Double.parseDouble(params.get("day")), response.getDaily().get(6).getTemp().getDay(), "Inccorect daily day temperature");
         Assertions.assertEquals(Double.parseDouble(params.get("min")), response.getDaily().get(6).getTemp().getMin(), "Incorrect daily min temperature");
         Assertions.assertEquals(Double.parseDouble(params.get("max")), response.getDaily().get(6).getTemp().getMax(), "Incorrect daily max temperature");
@@ -137,22 +138,25 @@ public class WeatherStepDefs {
         Assertions.assertEquals(Double.parseDouble(params.get("eve")), response.getDaily().get(6).getTemp().getEve(), "Incorrect daily evening temperature");
         Assertions.assertEquals(Double.parseDouble(params.get("morn")), response.getDaily().get(6).getTemp().getMorn(), "Incorrect daily morning temperature");
     }
+
     @Then("daily feels like temperature is:")
-    public void check_daily_feels_like_temp(Map<String, String> params){
+    public void check_daily_feels_like_temp(Map<String, String> params) {
         Assertions.assertEquals(Double.parseDouble(params.get("day")), response.getDaily().get(7).getFeelsLike().getDay(), "Incorrect daily day's feels like temperature");
         Assertions.assertEquals(Double.parseDouble(params.get("night")), response.getDaily().get(7).getFeelsLike().getNight(), "Incorrect daily night's feels like temperature");
         Assertions.assertEquals(Double.parseDouble(params.get("eve")), response.getDaily().get(7).getFeelsLike().getEve(), "Incorrect daily evening feels like temperature");
         Assertions.assertEquals(Double.parseDouble(params.get("morn")), response.getDaily().get(7).getFeelsLike().getMorn(), "Incorrect daily morning feels like temperature");
     }
+
     @Then("daily weather details are:")
-    public void check_daily_weather_details(Map<String, String> params){
+    public void check_daily_weather_details(Map<String, String> params) {
         Assertions.assertEquals(Long.parseLong(params.get("id")), response.getDaily().get(9).getWeatherDetails().getId(), "Incorrect daily weather details id");
         Assertions.assertEquals((params.get("main")), response.getDaily().get(9).getWeatherDetails().getMain(), "Incorrect daily weather details main");
         Assertions.assertEquals((params.get("description")), response.getDaily().get(9).getWeatherDetails().getDescription(), "Incorrect daily weather details main");
         Assertions.assertEquals((params.get("icon")), response.getDaily().get(9).getWeatherDetails().getIcon(), "Incorrect daily weather details main");
     }
+
     @Then("alerts are:")
-    public void check_weather_alerts(Map<String,String> params){
+    public void check_weather_alerts(Map<String, String> params) {
         Assertions.assertEquals(params.get("sender_name"), response.getAlerts().get(0).getSenderName(), "Incorrect sender name");
         Assertions.assertEquals(params.get("event"), response.getAlerts().get(1).getEvent(), "Incorrect event");
         Assertions.assertEquals(Long.parseLong(params.get("start")), response.getAlerts().get(1).getStart(), "Incorrect start");

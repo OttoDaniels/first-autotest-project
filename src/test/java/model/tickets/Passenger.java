@@ -10,7 +10,9 @@ public class Passenger {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    public Passenger () {}  //can be empty to enter info in a test
+
+    public Passenger() {
+    }  //can be empty to enter info in a test
 
     public String getFirstName() {
         return firstName;
@@ -27,6 +29,7 @@ public class Passenger {
         this.firstName = firstName.equals("random") ? RandomStringUtils.randomAlphabetic(10) : firstName;
         //              |-----expression------------|----------true--------------------------------|---false--|
     }
+
     public String getLastName() {
         return lastName;
     }

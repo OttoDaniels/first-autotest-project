@@ -6,7 +6,7 @@ Feature: Air Ticket Booking
       | to   | JFC |
     And passenger info is:
       | first_name | random |
-      | last_name  | Otto    |
+      | last_name  | Otto   |
 
     And flight info is:
       | discount        | ccccc      |
@@ -14,7 +14,7 @@ Feature: Air Ticket Booking
       | child_count     | 1          |
       | luggage_count   | 3          |
       | flight_date     | 12-05-2018 |
-      | seat_number     | 17         |
+      | seat_number     | 13         |
 
     And home page is opened
 
@@ -26,13 +26,12 @@ Feature: Air Ticket Booking
     And requesting price
     Then airports and price appears in flight details
 
-    When we are confirming price
+    When we are confirming reservation
     And selecting seat number
     Then selected seat number appears
-
-    When we are confirming seat
+    When we are confirming reservation after seat selection
     Then successfull registration message appears
 
-    When we are reuesting all reservations via API
+    When we are requesting all reservations via API
     Then current reservation exists in the list
     And all data are stored correctly
