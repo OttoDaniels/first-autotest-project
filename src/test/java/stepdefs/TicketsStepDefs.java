@@ -87,7 +87,7 @@ public class TicketsStepDefs {
     @Then("airports and price appears in flight details")
     public void check_reservation_info() {
         Assertions.assertEquals(passenger.getFirstName(), infopage.getFirstName(), "Wrong first name!");
-        Assertions.assertEquals("!", infopage.getFirstNameValueLastChar(), "Wrong first name!");
+        Assertions.assertEquals("!", infopage.getFirstNameValueLastChar(), "Wrong first name char!");
 
     }
     @When("we are confirming reservation")
@@ -133,7 +133,14 @@ public class TicketsStepDefs {
     @Then("all data are stored correctly")
     public void check_reservation_data() {
         Assertions.assertEquals(passenger.getLastName(), reservationFromApi.getSurname(), "Wrong last name!");
+        Assertions.assertEquals(passenger.getFirstName(), reservationFromApi.getName(), "Wrong first name!");
         Assertions.assertEquals(flight.getSeatNumber(), reservationFromApi.getSeat(), "Wrong seat number");
-        /// another assertions
+        Assertions.assertEquals(flight.getDiscount(), reservationFromApi.getDiscount(), "Wrong discount!");
+        Assertions.assertEquals(flight.getLuggageCount(), reservationFromApi.getBugs(), "Wrong luggage count!");
+        Assertions.assertEquals(flight.getChildCount(), reservationFromApi.getChildren(), "Wrong children count!");
+        Assertions.assertEquals(flight.getFlightDate(), reservationFromApi.getFlight(), "Wrong flight date!");
+        Assertions.assertEquals(flight.getPassengerCount(), reservationFromApi.getAdults(), "Wrong passenger count!");
+        Assertions.assertEquals(flight.getDeparture(), reservationFromApi.getAfrom(), "Wrong departure airport!");
+        Assertions.assertEquals(flight.getArrival(), reservationFromApi.getAto(), "Wrong arrival airport!");
     }
 }
